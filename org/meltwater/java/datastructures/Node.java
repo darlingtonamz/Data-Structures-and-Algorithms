@@ -1,11 +1,11 @@
 package org.meltwater.java.datastructures;
 
-public class Node{
+public class Node<E>{
 
-    public Node leftNode,  rightNode; // the nodes
-    public int value; //the AnyClass objext
+    public Node<E> leftNode,  rightNode; // the nodes
+    public E value; //the AnyClass objext
 
-    public Node(int v ) {//constructor
+    public Node(E v ) {//constructor
         this.value = v;
         this.leftNode = null;
         this.rightNode = null;

@@ -6,12 +6,12 @@ package org.meltwater.java.datastructures;
 public class SinglyLinkedList<E>{
 	// reference to the head node.
 	private LNode<E> head;
-	private int listCount;
+	private int size;
 	
 	// constructor
 	public SinglyLinkedList(){
 		head = new LNode<E>(null);
-		listCount = 0;
+		size = 0;
 	}
 	
 	/* appends the specified element to the end of this list.
@@ -25,7 +25,7 @@ public class SinglyLinkedList<E>{
 			current = current.getNext();
 		}
 		current.setNext(temp);
-		listCount++;
+		size++;
 	}
 	
 	// post: inserts the specified element at the specified position in this list.
@@ -37,24 +37,36 @@ public class SinglyLinkedList<E>{
 		}
 		temp.setNext(current.getNext());
 		current.setNext(temp);
-		listCount++;
+		size++;
 	}
 	
 	public void insertBefore(E elem1, E elem2){
-		LNode temp = new LNode(elem2);
+		LNode<E> temp = new LNode<E>(elem2);
 		LNode<E> current = head;
 		while(true){
-			if((current.getNext().getData() == elem1) || (current.getNext().getData() == null)) break;
+			if((current.getNext() == null)) 
+				break;
+			if(current.getNext().getData() == elem1) break;
 			current = current.getNext();
 		}
 		temp.setNext(current.getNext());
 		current.setNext(temp);
-		listCount++;
+		size++;
 	}	
 	
 	public void insertAfter(E elem1, E elem2){
-		
+		LNode<E> temp = new LNode<E>(elem2);
+		LNode<E> current = head;
+		while(true){
+			if((current.getNext() == null)) break;
+			if(current.getData() == elem1) break;
+			current = current.getNext();
+		}
+		temp.setNext(current.getNext());
+		current.setNext(temp);
+		size++;
 	}
+	
 	// post: returns the element at the specified position in this list.
 	public E get(int index){
 		if(index <= 0)
@@ -70,28 +82,10 @@ public class SinglyLinkedList<E>{
 		}
 		return (E) current.getData();
 	}
-	
-	// post: removes the element at the specified position in this list.
-	/*public boolean remove(int index){
-		if(index < 1 || index > size())
-			return false;
-		
-		LNode current = head;
-		for(int i = 1; i < index; i++){
-			if(current.getNext() == null)
-				return false;
-			
-			current = current.getNext();
-		}
-		current.setNext(current.getNext().getNext());
-		listCount--; 
-		return true;
-	}*/
-	
-	// 34,2,54,8,5,1,4,7,79,4,6
+
 	public boolean remove(E e){
 		LNode<E> current = head;
-		for(int i = 1; i < listCount; i++){
+		for(int i = 1; i < size; i++){
 			if(current.getNext() == null)
 				return false;
 			
@@ -103,7 +97,7 @@ public class SinglyLinkedList<E>{
 			}
 			if(current.getNext().getData() == e){
 				current.setNext(current.getNext().getNext());
-				listCount--; 
+				size--; 
 				break;
 			}
 			current = current.getNext();
@@ -113,15 +107,14 @@ public class SinglyLinkedList<E>{
 	
 	// post: returns the number of elements in this list.
 	public int size(){
-		return listCount;
+		return size;
 	}
 	
 	public String toString(){
 		LNode ld = head();
 		while (true) {
-			if(ld.equals(null)) break;
+			if(ld == null) break;
 			System.out.print("["+ld.getData()+"]->");
-			if(ld.getNext().equals(null)) break;
 			ld = ld.getNext();
 		}
 		return "";
@@ -132,7 +125,7 @@ public class SinglyLinkedList<E>{
 	}
 	
 	public LNode<E> tail(){
-		if(listCount <= 1)
+		if(size <= 1)
 			return head.getNext();
 		LNode<E> current = head.getNext();
 		while (true) {
@@ -142,7 +135,7 @@ public class SinglyLinkedList<E>{
 	}
 	
 	public boolean isEmpty(){
-		return (listCount < 1) ? true : false;
+		return (size < 1) ? true : false;
 	}
 	
 	public void reverse(){

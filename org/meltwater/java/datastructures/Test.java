@@ -5,15 +5,8 @@ import java.util.Random;
 public class Test {
 	public static void main(String[] args){
 		//Queue<Integer> q = new Queue<Integer>();
-		SinglyLinkedList<Integer> sl = new SinglyLinkedList<Integer>();
-		int[] arr = {34,45,132,8,3,41,48,5,6,87};
-		for (int i = 0; i < arr.length; i++) {
-			sl.add(arr[i]);
-		}	
-		//sl.remove(34);
-		//sl.reverse();
-		sl.insertBefore(3, 101);
-		sl.toString();
+		//SinglyLinkedList<Integer> sl = new SinglyLinkedList<Integer>();
+		
 		
 		//System.out.println("\nhead: "+sl.head().getData()+"\nTail: "+sl.tail().getData());
 		/*Stack<Integer> stk = new Stack<Integer>();
@@ -34,9 +27,13 @@ public class Test {
 		stk.clear();
 		System.out.println(stk.toString());*/
 		
-		/*BinarySearchTree bst = new BinarySearchTree();
-			
+		BinarySearchTree<Integer> bst = new BinarySearchTree<Integer>();
+		int[] arr = {4,2,6,1,3,5,7};
+		for (int i = 0; i < arr.length; i++) {
+			bst.add(arr[i]);
+		}	
+		bst.remove(2);
 		bst.toString();
-		System.out.println("\nSmallest: "+bst.smallest() +"\nLargest: "+bst.largest());*/
+		System.out.println("\nSmallest: "+bst.smallest() +"\nLargest: "+bst.largest());
 	}
 }
