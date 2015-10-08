@@ -29,6 +29,7 @@ public class BetterArray<E>{
 
 	/*
 	 * 1.	insert(int position, E element) -> Inserts element at position, and moves previous contents.
+	 * 		O(N)
 	 */
 	public void insert(int pos, E element){
 		try {
@@ -54,6 +55,7 @@ public class BetterArray<E>{
 
 	/*
 		2.	shift(E element) -> Insert element at the start of the array, usually position 0. Define shift in terms of insert (See 1).
+		O(N)
 	 */
 	public void shift(E element){
 		insert(0, element);
@@ -61,12 +63,13 @@ public class BetterArray<E>{
 	
 	/*
 		3.	append(E element) -> Append element to the end of the array. Define append in terms of insert (See 1).
-		
+			O(N) // when extending the array
 	 */
 	public void append(E element){
 		insert(size, element);
 	}
 	
+	// O(N)
 	private int find(E element){
 		for (int i = 0; i < arr.length; i++) {
 			if(!(arr[i] == null))
@@ -78,14 +81,14 @@ public class BetterArray<E>{
 	
 	/*
 	 * 4.	index(E element) -> Return the index of element in the array. If element isn't contained in the array return -1.
-		
+			O(N)
 	 */
 	public int index(E element){
 		return find(element);
 	}
 	
 	/*5.	contains(E element) -> Returns true if element is in array, false otherwise. Define contains in terms of index (See 4).
-		
+			O(N)
 	 */
 	public boolean contains(E element){
 		return (find(element) >= 0) ? true : false;
@@ -93,7 +96,7 @@ public class BetterArray<E>{
 	
 	/*
 	 * 6.	get(int index) -> Returns element at position index. If index is less than 0 or greater than maximum position occupied by an element, throw an appropriate exception.
-		
+			O(1)
 	 */
 	public E get(int i){
 		try {
@@ -109,14 +112,14 @@ public class BetterArray<E>{
 	/*
 	 * 
 	 * 7.	size() -> Returns the total number of elements in the array.
-		
+			O(1)
 	 */
 	public int size(){
 		return size;
 	}
 	
 	/* 8.	isEmpty() -> Returns true if array has no elements, false otherwise.
-		
+			O(1)
 	 */
 	public boolean isEmpty(){
 		return (size > 0) ? false : true;
@@ -124,7 +127,7 @@ public class BetterArray<E>{
 	
 	/*
 	 * 9.	remove(int index) -> Delete element at position index.
-		
+	 * O(N)
 	 */
 	public void remove(int index){
 		try {
@@ -142,6 +145,7 @@ public class BetterArray<E>{
 	}
 	
 	/* 	10.	remove(E element) -> Remove all occurrences of element from the array.
+	 * 	O(N)
 	 */
 	public void remove(E element){
 		for (int i = 0; i < arr.length; i++) {
@@ -152,6 +156,7 @@ public class BetterArray<E>{
 	}
 	
 	/* 11.	reverse() -> Reverses the array.
+	 * O(N)
 	 */
 	public void reverse(){
 		if(size <= 1) return;

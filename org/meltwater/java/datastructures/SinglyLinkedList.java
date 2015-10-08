@@ -15,6 +15,7 @@ public class SinglyLinkedList<E>{
 	}
 	
 	/* appends the specified element to the end of this list.
+	 * O(N)
 	 * */	
 	public void add(E data){
 		LNode<E> temp = new LNode<E>(data);
@@ -28,7 +29,8 @@ public class SinglyLinkedList<E>{
 		size++;
 	}
 	
-	// post: inserts the specified element at the specified position in this list.
+	// inserts the specified element at the specified position in this list.
+	// O(N)
 	public void add(E data, int index){
 		LNode temp = new LNode(data);
 		LNode<E> current = head;
@@ -40,6 +42,10 @@ public class SinglyLinkedList<E>{
 		size++;
 	}
 	
+	/*
+	 * Insert new node with value elem2, before node with value elem1
+	 * O(N)
+	 */
 	public void insertBefore(E elem1, E elem2){
 		LNode<E> temp = new LNode<E>(elem2);
 		LNode<E> current = head;
@@ -67,7 +73,8 @@ public class SinglyLinkedList<E>{
 		size++;
 	}
 	
-	// post: returns the element at the specified position in this list.
+	// returns the element at the specified position in this list.
+	// 	O(N)
 	public E get(int index){
 		if(index <= 0)
 			return null;
@@ -83,6 +90,10 @@ public class SinglyLinkedList<E>{
 		return (E) current.getData();
 	}
 
+	/*
+	 * removes node with value e
+	 * O(N)
+	 */
 	public boolean remove(E e){
 		LNode<E> current = head;
 		for(int i = 1; i < size; i++){
@@ -105,7 +116,10 @@ public class SinglyLinkedList<E>{
 		return true;
 	}
 	
-	// post: returns the number of elements in this list.
+	/*
+	 * returns the number of elements in this list.
+	 * O(N)
+	 */
 	public int size(){
 		return size;
 	}
@@ -120,10 +134,17 @@ public class SinglyLinkedList<E>{
 		return "";
 	}
 	
+	/*
+	 * returns the first node of the list
+	 */
 	public LNode<E> head(){
 		return head.getNext();
 	}
 	
+	/*
+	 * returns the last node of the list
+	 * O(N)
+	 */
 	public LNode<E> tail(){
 		if(size <= 1)
 			return head.getNext();
@@ -134,10 +155,18 @@ public class SinglyLinkedList<E>{
 		}
 	}
 	
+	/*
+	 * returns a boolean whether the list is empty or not
+	 * O(1)
+	 */
 	public boolean isEmpty(){
 		return (size < 1) ? true : false;
 	}
 	
+	/*
+	 * reverses the order of the list
+	 * O(N)
+	 */
 	public void reverse(){
 		LNode before = head;
 		LNode tmp = head.getNext();

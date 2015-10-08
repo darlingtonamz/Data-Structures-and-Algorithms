@@ -1,6 +1,6 @@
 package org.meltwater.java.datastructures;
 /* @Reference
- * This code was modified from http://www.codeproject.com/Articles/53366/Binary-Trees-in-Java
+ * This code was modified by Amanze, from http://www.codeproject.com/Articles/53366/Binary-Trees-in-Java
  */
 public class BinarySearchTree<E extends Comparable>{
     Node<E> theBTRootNode;
@@ -11,7 +11,6 @@ public class BinarySearchTree<E extends Comparable>{
         size = 0;
     }
 
-    // ------------------ Addition of the node to the BST-------------------
     private Node<E> insertAB(Node theRootNode, Node<E> myNewNode) {
         if (theRootNode == null) {
             theRootNode = myNewNode;
@@ -33,8 +32,10 @@ public class BinarySearchTree<E extends Comparable>{
     public void remove(E key){
     	remove(key, theBTRootNode);
     }
+    
     public void remove(E key, Node<E> pos){
-/*    	if (pos == null) return;
+    	// not working properly
+    	if (pos == null) return;
         if (key.compareTo(pos.value)<0)
             remove (key, pos.leftNode);
         else if (key.compareTo(pos.value)>0)
@@ -53,14 +54,13 @@ public class BinarySearchTree<E extends Comparable>{
             }
             else if(pos.rightNode != null) {
                 Node<E> trash = pos;
-                pos.rightNode;
+                pos = pos.rightNode;
                 trash = null;
             }
             else {
                 pos = null;
             }
-        }*//*
-*/
+        }
     }
 
     /*
