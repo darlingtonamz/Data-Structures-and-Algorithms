@@ -6,12 +6,16 @@ public class Test {
 	public static void main(String[] args){
 		//Queue<Integer> q = new Queue<Integer>();
 		SinglyLinkedList<Integer> sl = new SinglyLinkedList<Integer>();
-		int[] arr = {34,2,54,8,5,1,4,7,79,4,6};
-		for (int i = 0; i < 10; i++) {
+		int[] arr = {34,45,132,8,3,41,48,5,6,87};
+		for (int i = 0; i < arr.length; i++) {
 			sl.add(arr[i]);
 		}	
-		System.out.println(sl.toString());
+		//sl.remove(34);
+		//sl.reverse();
+		sl.insertBefore(3, 101);
+		sl.toString();
 		
+		//System.out.println("\nhead: "+sl.head().getData()+"\nTail: "+sl.tail().getData());
 		/*Stack<Integer> stk = new Stack<Integer>();
 		for (int i = 0; i < 10; i++) {
 			stk.push(i);

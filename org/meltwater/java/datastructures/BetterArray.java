@@ -28,7 +28,7 @@ public class BetterArray<E>{
 	
 
 	/*
-	 * 1.	insert(int position, E element) -> Inserts element at position.
+	 * 1.	insert(int position, E element) -> Inserts element at position, and moves previous contents.
 	 */
 	public void insert(int pos, E element){
 		try {

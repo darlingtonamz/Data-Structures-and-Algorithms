@@ -30,7 +30,9 @@ public class BinarySearchTree{
         theBTRootNode = insertAB(theBTRootNode, newNode);
     }
 
-    // ------------------ InOrder traversal-------------------
+    /*
+     * prints the tree in inorder form
+     */
     private void inorder(Node theRootNode) {
         if (theRootNode != null) {
             inorder(theRootNode.leftNode);	// show left
@@ -39,7 +41,10 @@ public class BinarySearchTree{
         }
     }
 
-    //calls the method to do in order
+    /*
+     * calls the method to do in order
+     * O(N)
+     */
     public String toString() {
         inorder(theBTRootNode);
         return null;
@@ -63,14 +68,16 @@ public class BinarySearchTree{
     public Node searchBST(int keyName) {
         Node temp = search(theBTRootNode, keyName);
         if (temp == null) {
-        	//noresults found
            return null;
         } else {
-         //result found
            return temp;
         }
     }
     
+    /*
+     * calls searchBST (which is recursive) to get the node of an element
+     * O(N)
+     */
     public boolean contains(int e){
     	return (searchBST(e) == null) ? false : true;
     }
@@ -87,10 +94,18 @@ public class BinarySearchTree{
     	return rightMost(nd.rightNode);
     }
     
+    /*
+     * Searches for the smallest element in the tree
+     * O(N)
+     */
     public int smallest(){
     	return leftMost(theBTRootNode).value;
     }
     
+    /*
+     * Searches for the largest element in the tree
+     * O(N)
+     */
     public int largest(){
     	return rightMost(theBTRootNode).value;
     }
