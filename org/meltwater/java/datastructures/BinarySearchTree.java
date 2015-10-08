@@ -1,5 +1,7 @@
 package org.meltwater.java.datastructures;
-
+/* @Reference
+ * This code was modified from http://www.codeproject.com/Articles/53366/Binary-Trees-in-Java
+ */
 public class BinarySearchTree{
     Node theBTRootNode;
     int size;
